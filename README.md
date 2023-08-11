@@ -12,9 +12,9 @@
 - [x] wei-tray: 托盘程序
 - [x] wei-daemon: 守护进程
 - [x] wei-log: 日志
-- [ ] wei-docker: docker 管理程序
+- [x] wei-docker: docker 管理程序
 - [x] wei-env: 配置文件
-- [ ] wei-hardware: 硬件参数
-- [ ] wei-docker-install: docker 安装程序
-- [ ] wei-update: 自动更新
-- [ ] wei-ui: UI界面
+- [x] wei-hardware: 硬件参数
+- [x] wei-docker-install: docker 安装程序
+- [x] wei-update: 自动更新
+- [x] wei-ui: UI界面
