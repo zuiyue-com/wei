@@ -5,22 +5,29 @@ fn main() {
 
     let args: Vec<String> = env::args().collect();
 
-    if args.len() < 2 {
-        help();
-        std::process::exit(1);
-    }
-    let command = &args[1];
+    // if args.len() < 2 {
+    //     help();
+    //     std::process::exit(1);
+    // }
+    let mut command = "";
 
-    match command.as_str() {
+    if args.len() > 1 {
+        command = &args[1];
+    }
+
+    match command {
         "run" => {
             // 先去当前目录bin下面找对应的exe文件，如果没有，则去wei_env::dir_bin下面找对应执行的路径
             // 如果还是没有，则去网络上面查找有没有对应的exe文件，如果有则去下载。并提示当前正在下载文件
             // 如果在网络上面没有找到对应的exe文件，则提示失败
-            let data = run(&args[2], std::env::args().skip(2).collect()).unwrap();
-            println!("data:[{}]", data);
+            let data = run(&args[2], std::env::args().skip(3).collect()).unwrap();
+            println!("{}", data);
         },
         "daemon" => {
             println!("daemon");
+        },
+        "--help" => {
+            help();
         },
         _ => {
             
@@ -30,9 +37,9 @@ fn main() {
 
 fn help() {
     let args: Vec<String> = env::args().collect();
-    eprintln!("Usage:");
-    eprintln!("  {} run <command> <param1> <param2>", args[0]);
-    eprintln!("  {} api <json>", args[0]);
+    println!("Usage:");
+    println!("  {} run <command> <param1> <param2>", args[0]);
+    // println!("  {} api <json>", args[0]);
 }
 
 fn run(command: &str, param: Vec<String>) -> Result<String, Box<dyn std::error::Error>> {
