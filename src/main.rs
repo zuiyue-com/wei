@@ -4,11 +4,6 @@ fn main() {
     wei_env::bin_init("wei");
 
     let args: Vec<String> = env::args().collect();
-
-    // if args.len() < 2 {
-    //     help();
-    //     std::process::exit(1);
-    // }
     let mut command = "";
 
     if args.len() > 1 {
@@ -21,10 +16,10 @@ fn main() {
             // 如果还是没有，则去网络上面查找有没有对应的exe文件，如果有则去下载。并提示当前正在下载文件
             // 如果在网络上面没有找到对应的exe文件，则提示失败
             let data = run(&args[2], std::env::args().skip(3).collect()).unwrap();
-            println!("{}", data);
+            print!("{}", data);
         },
         "daemon" => {
-            println!("daemon");
+            print!("daemon");
         },
         "--help" => {
             help();
