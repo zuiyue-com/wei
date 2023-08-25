@@ -1,21 +1,14 @@
 # wei
 
-- [ ] 主进程唯一性：只允许存在一个主进程
-- [ ] 守护进程功能：统一管理其它进程，保证他们被关闭的时候再次开启
-- [x] 单次启动：进程互相调用只执行一次
-- [ ] 创建端口提供访问：进程通讯方式,碰见和自己重复的端口，则为自己的端口加1，直到不重复为止，并写进配置文件
-- [ ] 默认进程列表：主进程开启需要拉起的进程
-- [ ] 下载程序：自动下载最新的功能模块
+## 0.1
 
+- [] Daemon function: Unified management of other processes, ensuring that they are restarted when they are shut down
+- [] Main process uniqueness: Only one main process is allowed to exist
+- [] Default process list: The main process starts the process that needs to be pulled
+- [x] Single start: processes call each other and only execute once
+- [] Download program: Automatically download the latest functional modules
+- [] Automatic exit of daemon type: When a program of daemon type receives an exit code
 
-# 功能拆分
+## todo
 
-- [x] wei-tray: 托盘程序
-- [x] wei-daemon: 守护进程
-- [x] wei-log: 日志
-- [x] wei-docker: docker 管理程序
-- [x] wei-env: 配置文件
-- [x] wei-hardware: 硬件参数
-- [x] wei-docker-install: docker 安装程序
-- [x] wei-update: 自动更新
-- [x] wei-ui: UI界面
+- [] Create a port to provide access: Process communication method. If you encounter a duplicate port with yourself, add 1 to your own port until there are no duplicates, and write it into the configuration file
