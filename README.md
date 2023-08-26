@@ -2,12 +2,12 @@
 
 ## 0.1
 
-- [] Daemon function: Unified management of other processes, ensuring that they are restarted when they are shut down
-- [] Main process uniqueness: Only one main process is allowed to exist
-- [] Default process list: The main process starts the process that needs to be pulled
+- [x] Daemon function: Unified management of other processes, ensuring that they are restarted when they are shut down
+- [x] Main process uniqueness: Only one main process is allowed to exist
+- [x] Default process list: The main process starts the process that needs to be pulled，and merge with the daemon process
 - [x] Single start: processes call each other and only execute once
-- [] Download program: Automatically download the latest functional modules
-- [] Automatic exit of daemon type: When a program of daemon type receives an exit code
+- [ ] Download program: Automatically download the latest functional modules
+- [ ] Automatic exit of daemon type: When a program of daemon type receives an exit code , it exits automatically
 
 ## todo
 

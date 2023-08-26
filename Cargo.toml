@@ -1,6 +1,6 @@
 [package]
 name = "wei"
-version = "0.1.7"
+version = "0.1.8"
 edition = "2021"
 description = "wei system"
 documentation = "https://github.com/zuiyue-com/wei"
@@ -13,3 +13,4 @@ wei-run = { path = "../wei-run" }
 wei-env = "0.2.4"
 wei-daemon = { path = "../wei-daemon" }
 tokio = { version = "1", features = ["full"] }
+single-instance = "0.3"
