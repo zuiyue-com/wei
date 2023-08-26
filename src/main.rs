@@ -4,8 +4,7 @@ use std::env;
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_env::bin_init("wei");
 
-    use single_instance::SingleInstance;
-    let instance = SingleInstance::new("wei").unwrap();
+    let instance = single_instance::SingleInstance::new("wei")?;
     if !instance.is_single() { 
         std::process::exit(1);
     };
