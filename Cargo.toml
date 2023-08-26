@@ -8,9 +8,9 @@ homepage = "https://github.com/zuiyue-com/wei"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-#wei-run = "0.1.5"
-wei-run = { path = "../wei-run" }
+wei-run = "0.1.10"
+#wei-run = { path = "../wei-run" }
 wei-env = "0.2.4"
-wei-daemon = { path = "../wei-daemon" }
+wei-daemon = "0.2.3"
 tokio = { version = "1", features = ["full"] }
 single-instance = "0.3"
