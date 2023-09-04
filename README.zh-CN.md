@@ -11,6 +11,7 @@
 
 ## 0.2
 
+- [ ] 程序检测完整性
 - [ ] linux docker 安装
 - [ ] linux docker 容器开启
 - [ ] linux frp 穿透
