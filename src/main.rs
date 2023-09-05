@@ -1,5 +1,3 @@
-use std::env;
-
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_env::bin_init("wei");
@@ -8,6 +6,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     if !instance.is_single() { 
         std::process::exit(1);
     };
+
+    // 写入状态为 1 表示正在运行
+    wei_env::start();
 
     wei_daemon::start().await.unwrap();
 

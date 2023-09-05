@@ -1,16 +1,20 @@
 [package]
 name = "wei"
-version = "0.1.9"
+version = "0.1.10"
 edition = "2021"
 description = "wei system"
 documentation = "https://github.com/zuiyue-com/wei"
 homepage = "https://github.com/zuiyue-com/wei"
 license = "MIT OR Apache-2.0"
+build = "build.rs"
+
+[build-dependencies]
+winres = "0.1"
 
 [dependencies]
 wei-run = "0.1.10"
 #wei-run = { path = "../wei-run" }
-wei-env = "0.2.4"
-wei-daemon = "0.2.3"
+wei-env = "0.2.10"
+wei-daemon = "0.2.5"
 tokio = { version = "1", features = ["full"] }
 single-instance = "0.3"
