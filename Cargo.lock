@@ -1451,7 +1451,7 @@ dependencies = [
 
 [[package]]
 name = "wei"
-version = "0.1.10"
+version = "0.1.11"
 dependencies = [
  "reqwest",
  "sha2",

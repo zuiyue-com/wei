@@ -15,8 +15,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
     let dir = std::path::PathBuf::from("./");
     let checksums = read_checksums("./data/checksum.dat")?;
-    verify_files(&checksums, &dir)?;
+    verify_files(&checksums, &dir).await?;
 
+    // 设置工作目录为当前 ./data
+    std::env::set_current_dir("./data")?;
     wei_daemon::start().await.unwrap();
 
     Ok(())
@@ -33,16 +35,13 @@ async fn download_all() -> Result<(), Box<dyn std::error::Error>> {
     // 读取checksum.dat里面的内容，内容格式是每一个文件一行，格式是 文件路径|||checksum
     // 使用 reqwest 下载这些文件对应的存放到指对应每一行的文件路径
     // Download the checksum file
-    let checksum_url = format!("http://download.zuiyue.com/{}/latest/data/checksum.dat", std::env::consts::OS);
-    println!("Downloading checksum file from {}", checksum_url);
     let checksum_path = Path::new("./data/checksum.dat");
-    download_file(&checksum_url, checksum_path).await?;
+    download_file("data/checksum.dat", checksum_path).await?;
     let checksums = read_checksums("./data/checksum.dat")?;
     
     for (path, _checksum) in &checksums {
-        let file_url = format!("http://download.zuiyue.com/{}/latest/{}", std::env::consts::OS, path);
         let file_path = Path::new(path);
-        download_file(&file_url, file_path).await?;
+        download_file(&path, file_path).await?;
     }
 
     Ok(())
@@ -76,7 +75,7 @@ fn read_checksums<P: AsRef<Path>>(file_path: P) -> io::Result<HashMap<String, St
 
     Ok(checksums)
 }
-fn verify_files(checksums: &HashMap<String, String>, prefix: &Path) -> io::Result<()> {
+async fn verify_files(checksums: &HashMap<String, String>, prefix: &Path) -> io::Result<()> {
     for relative_path_str in checksums.keys() {
         let path = prefix.join(relative_path_str);
 
@@ -89,18 +88,39 @@ fn verify_files(checksums: &HashMap<String, String>, prefix: &Path) -> io::Resul
             let actual_checksum = calculate_sha256(&path)?;
             if &actual_checksum != expected_checksum {
                 println!("Checksum mismatch for {}: expected {}, found {}", relative_path_str, expected_checksum, actual_checksum);
-                // TODO: Handle mismatch
+                copy_file_from_new_or_internet(relative_path_str).await?;
             }
         } else {
             println!("File {} not found in local directory", relative_path_str);
-            // TODO: Handle missing file
+            copy_file_from_new_or_internet(relative_path_str).await?;
         }
     }
 
     Ok(())
 }
 
-async fn download_file(url: &str, path: &Path) -> io::Result<()> {
+async fn copy_file_from_new_or_internet(dest: &str) -> std::io::Result<()> {
+
+    let local_version = fs::read_to_string("./data/version.dat").unwrap();
+    let src = format!("./data/new/{}/{}", local_version, dest);
+    if Path::new(&src).exists() {
+        fs::copy(src, dest)?;
+        println!("File copied successfully.");
+    } else {
+        println!("Source file does not exist, download from internet.");
+        let path = Path::new(dest);
+        download_file(dest, path).await?;
+    }
+
+    Ok(())
+}
+
+async fn download_file(file_path: &str, path: &Path) -> io::Result<()> {
+    if file_path == "wei" || file_path == "wei.exe" {
+        return Ok(());
+    }
+    let url = format!("http://download.zuiyue.com/{}/latest/{}", std::env::consts::OS, file_path);
+    println!("Downloading {} to {}", url, path.display());
     // Create parent directory if it doesn't exist
     if let Some(parent) = path.parent() {
         fs::create_dir_all(parent)?;
