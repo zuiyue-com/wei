@@ -30,6 +30,8 @@ use std::path::{Path};
 use sha2::{Sha256, Digest};
 use std::collections::HashMap;
 
+/// 先检查 data/checksum.dat,如果不存在直接下载https://download.zuiyue.com/os/latest/data/checksum.dat，通过 checksum.dat 下载所有最新的文件和应用程序。
+/// 碰到 data/checksum.dat 文件不统一的情况，先从 data/new/0.1.2 版本里面复制对应的文件到 data/ 目录下面，然后再检查，如果还是不统一，则从远程对应系统里面的latest下载所有最新的文件和应用程序。
 async fn download_all() -> Result<(), Box<dyn std::error::Error>> {
     // 下载 format!("https://download.zuiyue.com/{}/latest/data/checksum.dat, std::env::consts::OS");
     // 读取checksum.dat里面的内容，内容格式是每一个文件一行，格式是 文件路径|||checksum
@@ -79,7 +81,8 @@ async fn verify_files(checksums: &HashMap<String, String>, prefix: &Path) -> io:
     for relative_path_str in checksums.keys() {
         let path = prefix.join(relative_path_str);
 
-        if path.file_name() == Some(std::ffi::OsStr::new("checksum.dat")) {
+        if path.file_name().unwrap() == "checksum.dat" ||
+           path.file_name().unwrap() == "wei.exe" {
             continue;
         }
 
@@ -116,9 +119,6 @@ async fn copy_file_from_new_or_internet(dest: &str) -> std::io::Result<()> {
 }
 
 async fn download_file(file_path: &str, path: &Path) -> io::Result<()> {
-    if file_path == "wei" || file_path == "wei.exe" {
-        return Ok(());
-    }
     let url = format!("http://download.zuiyue.com/{}/latest/{}", std::env::consts::OS, file_path);
     println!("Downloading {} to {}", url, path.display());
     // Create parent directory if it doesn't exist

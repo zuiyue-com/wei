@@ -12,10 +12,10 @@ build = "build.rs"
 winres = "0.1"
 
 [dependencies]
-wei-run = "0.1.10"
+wei-run = "0.1.11"
 #wei-run = { path = "../wei-run" }
 wei-env = "0.2.10"
-wei-daemon = "0.2.5"
+wei-daemon = "0.2.6"
 tokio = { version = "1", features = ["full"] }
 reqwest = { version = "0.11", features = ["json"] }
 single-instance = "0.3"
