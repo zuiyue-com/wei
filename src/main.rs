@@ -22,7 +22,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_daemon::start().await.unwrap();
 
     // 退出 wei-tray 和 wei-ui
-
     wei_run::kill("wei-tray")?;
     wei_run::kill("wei-ui")?;
 
