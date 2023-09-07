@@ -21,6 +21,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     std::env::set_current_dir("./data")?;
     wei_daemon::start().await.unwrap();
 
+    // 退出 wei-tray 和 wei-ui
+
+    wei_run::kill("wei-tray")?;
+    wei_run::kill("wei-ui")?;
+
     Ok(())
 }
 
