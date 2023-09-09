@@ -1,6 +1,6 @@
 [package]
 name = "wei"
-version = "0.1.19"
+version = "0.1.21"
 edition = "2021"
 description = "wei system"
 documentation = "https://github.com/zuiyue-com/wei"
@@ -12,9 +12,9 @@ build = "build.rs"
 winres = "0.1"
 
 [dependencies]
-wei-run = "0.1.21"
+wei-run = "0.1.22"
 wei-env = "0.2.10"
-wei-daemon = "0.2.16"
+wei-daemon = "0.2.19"
 #wei-daemon = { path = "../wei-daemon" }
 tokio = { version = "1", features = ["full"] }
 reqwest = { version = "0.11", features = ["json"] }

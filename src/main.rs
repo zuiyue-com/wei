@@ -6,12 +6,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         std::process::exit(1);
     };
     
-    loop {
-        wei_run::command_async("../wei-updater/target/debug/wei-updater.exe", vec![])?;
-        tokio::time::sleep(tokio::time::Duration::from_secs(3)).await;
-    }
-    return Ok(());
-
+    // 配置重置状态为1
     wei_env::start();
 
     // 如果./data/checksum.dat不存在 
@@ -24,7 +19,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // 设置工作目录为当前 ./data
     std::env::set_current_dir("./data")?;
-    wei_daemon::start().await.unwrap();
+    wei_daemon::start().await?;
 
     // 退出 wei-tray 和 wei-ui
     wei_run::kill("wei-tray")?;
