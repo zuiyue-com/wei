@@ -19,6 +19,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     // 设置工作目录为当前 ./data
     std::env::set_current_dir("./data")?;
+
     wei_daemon::start().await?;
 
     // 退出 wei-tray 和 wei-ui
