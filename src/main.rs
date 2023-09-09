@@ -5,7 +5,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     if !instance.is_single() { 
         std::process::exit(1);
     };
-    
+
     // 配置重置状态为1
     wei_env::start();
 
