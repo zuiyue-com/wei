@@ -1,6 +1,6 @@
 [package]
 name = "wei"
-version = "0.1.35"
+version = "0.1.37"
 edition = "2021"
 description = "wei system"
 documentation = "https://github.com/zuiyue-com/wei"

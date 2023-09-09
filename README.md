@@ -21,18 +21,3 @@
 - [ ] linux frp penetration
 - [ ] linux frp server port
 
-## todo
-
-
-
-## Basic folder structure
-
-```
-wei.exe
-data/
-data/version.dat
-data/daemon.dat
-data/checksum.dat
-data/wei-task.exe
-data/wei-updater.exe
-```
