@@ -11,8 +11,6 @@
 - [x] 退出关闭wei-ui,wei-tray
 - [x] 程序检测完整性
 
-- [ ] wei-updater 每次更新之前，需要重新效验 torrent
-
 ## 0.2
 
 - [ ] wei-ui 界面，安装软件，查询软件安装进度
