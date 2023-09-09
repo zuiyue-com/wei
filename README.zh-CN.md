@@ -11,8 +11,8 @@
 - [x] 退出关闭wei-ui,wei-tray
 - [x] 程序检测完整性
 
-- [x] wei-tray 正常开启，没有显示右下角图标
 - [ ] wei-updater 设置了关闭，但是wei没有正常退出，原因是wei-daemon必须等待wei-updater关闭，wei才会关闭。
+- [ ] wei-updater 每次更新之前，需要重新效验 torrent
 
 ## 0.2
 

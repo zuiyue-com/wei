@@ -1,11 +1,16 @@
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_env::bin_init("wei");
-
     let instance = single_instance::SingleInstance::new("wei")?;
     if !instance.is_single() { 
         std::process::exit(1);
     };
+    
+    loop {
+        wei_run::command_async("../wei-updater/target/debug/wei-updater.exe", vec![])?;
+        tokio::time::sleep(tokio::time::Duration::from_secs(3)).await;
+    }
+    return Ok(());
 
     wei_env::start();
 

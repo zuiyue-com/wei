@@ -12,7 +12,7 @@ build = "build.rs"
 winres = "0.1"
 
 [dependencies]
-wei-run = "0.1.18"
+wei-run = "0.1.21"
 wei-env = "0.2.10"
 wei-daemon = "0.2.16"
 #wei-daemon = { path = "../wei-daemon" }
