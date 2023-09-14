@@ -11,6 +11,7 @@
 - [ ] linux docker 容器开启
 - [ ] linux frp 穿透
 - [ ] linux frp server 端口
+- [ ] nat 穿透
 
 ## 0.1
 
