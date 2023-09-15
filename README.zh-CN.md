@@ -17,6 +17,7 @@
 - [ ] linux docker 安装 
 - [ ] linux docker 容器
 - [ ] linux frp 穿透
+- [ ] linux frp server 端口
 - [ ] zuiyue.com 接口对接
 - [ ] dragonfly2 功能对接
 
