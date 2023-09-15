@@ -3,14 +3,22 @@
 
 ## 0.2
 
-- [ ] wei-ui 界面，安装软件，查询软件安装进度
+- [x] wei-ui 界面，安装软件，查询软件安装进度
 - [ ] 测试各种文件夹情况，中文，文件夹带空格等
-- [ ] 创建端口提供访问：进程通讯方式,碰见和自己重复的端口，则为自己的端口加1，直到不重复为止，并写进配置文件
+- [x] 创建端口提供访问：进程通讯方式,碰见和自己重复的端口，则为自己的端口加1，直到不重复为止，并写进配置文件
 - [ ] 自动化提交新版本到微软白名单
-- [ ] linux docker 安装
-- [ ] linux docker 容器开启
+- [ ] windows docker 安装
+- [ ] windows docker 容器
+- [ ] windows frp 穿透
+- [ ] linux frp server 端口自动查找
+
+## 0.3
+
+- [ ] linux docker 安装 
+- [ ] linux docker 容器
 - [ ] linux frp 穿透
-- [ ] linux frp server 端口
+- [ ] zuiyue.com 接口对接
+- [ ] dragonfly2 功能对接
 
 ## 0.1
 
