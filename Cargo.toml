@@ -1,6 +1,6 @@
 [package]
 name = "wei"
-version = "0.2.2"
+version = "0.2.3"
 edition = "2021"
 description = "wei system"
 documentation = "https://github.com/zuiyue-com/wei"
@@ -8,12 +8,16 @@ homepage = "https://github.com/zuiyue-com/wei"
 license = "MIT OR Apache-2.0"
 build = "build.rs"
 
+[package.metadata.windows]
+subsystem = "windows"
+
 [build-dependencies]
 winres = "0.1"
 
 [dependencies]
 wei-run = "0.1.23"
 wei-daemon = "0.2.20"
+wei-log = "0.2.5"
 # wei-run = { path = "../wei-run" }
 # wei-daemon = { path = "../wei-daemon" }
 wei-env = "0.2.10"
@@ -21,3 +25,6 @@ tokio = { version = "1", features = ["full"] }
 reqwest = { version = "0.11", features = ["json"] }
 single-instance = "0.3"
 sha2 = "0.10.7"
+
+#[target.'cfg(windows)'.dependencies]
+#winapi = { version = "0.3", features = ["winuser"] }

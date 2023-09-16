@@ -1,5 +1,8 @@
 # wei
 
+## bug
+
+- [ ] wei-qbittorrent 直接退出，正确应该是一直存在
 
 ## 0.2
 

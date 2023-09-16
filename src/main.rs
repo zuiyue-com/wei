@@ -1,3 +1,8 @@
+#![windows_subsystem = "windows"]
+
+#[macro_use]
+extern crate wei_log;
+
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_env::bin_init("wei");
@@ -6,6 +11,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         std::process::exit(1);
     };
 
+    info!("wei start");
     // 配置重置状态为1
     wei_env::start();
 
@@ -18,14 +24,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     verify_files(&checksums, &dir).await?;
 
     // 设置工作目录为当前 ./data
+    info!("set_current_dir ./data");
     std::env::set_current_dir("./data")?;
 
+    info!("start wei await");
     wei_daemon::start().await?;
 
     // 退出 wei-tray 和 wei-ui
+    info!("kill wei-tray and wei-ui");
     wei_run::kill("wei-tray")?;
     wei_run::kill("wei-ui")?;
 
+    info!("exit wei");
     Ok(())
 }
 
@@ -95,11 +105,11 @@ async fn verify_files(checksums: &HashMap<String, String>, prefix: &Path) -> io:
             let expected_checksum = checksums.get(relative_path_str).unwrap();
             let actual_checksum = calculate_sha256(&path)?;
             if &actual_checksum != expected_checksum {
-                println!("Checksum mismatch for {}: expected {}, found {}", relative_path_str, expected_checksum, actual_checksum);
+                info!("Checksum mismatch for {}: expected {}, found {}", relative_path_str, expected_checksum, actual_checksum);
                 copy_file_from_new_or_internet(relative_path_str).await?;
             }
         } else {
-            println!("File {} not found in local directory", relative_path_str);
+            info!("File {} not found in local directory", relative_path_str);
             copy_file_from_new_or_internet(relative_path_str).await?;
         }
     }
@@ -108,14 +118,13 @@ async fn verify_files(checksums: &HashMap<String, String>, prefix: &Path) -> io:
 }
 
 async fn copy_file_from_new_or_internet(dest: &str) -> std::io::Result<()> {
-
     let local_version = fs::read_to_string("./data/version.dat").unwrap();
     let src = format!("./data/new/{}/{}", local_version, dest);
     if Path::new(&src).exists() {
         fs::copy(src, dest)?;
-        println!("File copied successfully.");
+        info!("File copied successfully.");
     } else {
-        println!("Source file does not exist, download from internet.");
+        info!("Source file does not exist, download from internet.");
         let path = Path::new(dest);
         download_file(dest, path).await?;
     }
@@ -125,7 +134,10 @@ async fn copy_file_from_new_or_internet(dest: &str) -> std::io::Result<()> {
 
 async fn download_file(file_path: &str, path: &Path) -> io::Result<()> {
     let url = format!("http://download.zuiyue.com/{}/latest/{}", std::env::consts::OS, file_path);
-    println!("Downloading {} to {}", url, path.display());
+    if path.display().to_string() == "wei.exe" {
+        return Ok(());
+    }
+    info!("Downloading {} to {}", url, path.display());
     // Create parent directory if it doesn't exist
     if let Some(parent) = path.parent() {
         fs::create_dir_all(parent)?;
@@ -139,3 +151,18 @@ async fn download_file(file_path: &str, path: &Path) -> io::Result<()> {
 
     Ok(())
 }
+
+// windows下面才编译
+// #[cfg(target_os = "windows")]
+// fn hide() {
+//     use winapi::um::wincon::GetConsoleWindow;
+//     use winapi::um::winuser::{ShowWindow, SW_HIDE};
+
+//     unsafe {
+//         let window = GetConsoleWindow();
+//         // 如果窗口存在，隐藏它
+//         if window != std::ptr::null_mut() {
+//             ShowWindow(window, SW_HIDE);
+//         }
+//     }
+// }
