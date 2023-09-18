@@ -9,7 +9,7 @@
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [mit-url]: https://github.com/zuiyue-com/wei/blob/master/LICENSE
 [actions-badge]: https://github.com/zuiyue-com/wei/workflows/Windows/badge.svg
-[actions-url]: https://github.com/zuiyue-com/wei/actions?query=workflow%3ACI+branch%3Amaster
+[actions-url]: https://github.com/zuiyue-com/wei/actions
 
 Wei is a cross-platform automation management tool designed to simplify and automate the installation, deployment, and management of software. Whether it's open-source software on GitHub, custom software, or third-party applications, Wei provides powerful functionality. Importantly, Wei can handle systems of any scale, from individual devices to large-scale clusters.
 
