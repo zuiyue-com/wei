@@ -1,5 +1,16 @@
 # Wei
 
+[![Crates.io][crates-badge]][crates-url]
+[![MIT licensed][mit-badge]][mit-url]
+[![Build Status][actions-badge]][actions-url]
+
+[crates-badge]: https://img.shields.io/crates/v/wei.svg
+[crates-url]: https://crates.io/crates/wei
+[mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[mit-url]: https://github.com/zuiyue-com/wei/blob/master/LICENSE
+[actions-badge]: https://github.com/zuiyue-com/wei/workflows/CI/badge.svg
+[actions-url]: https://github.com/zuiyue-com/wei/actions?query=workflow%3ACI+branch%3Amaster
+
 Wei is a cross-platform automation management tool designed to simplify and automate the installation, deployment, and management of software. Whether it's open-source software on GitHub, custom software, or third-party applications, Wei provides powerful functionality. Importantly, Wei can handle systems of any scale, from individual devices to large-scale clusters.
 
 * **Automatic Installation of GitHub Open Source Software**: Wei can connect to your GitHub account, automatically download and install the open-source software you choose. Moreover, it will continuously track updates to these projects, ensuring your software is always up to date.
@@ -13,17 +24,6 @@ Wei is a cross-platform automation management tool designed to simplify and auto
 * **Cluster Management**: Whether it's a small-scale network or a large-scale enterprise cluster, Wei can fully automate deployment and management. With simple setup, Wei can help you quickly and accurately complete all deployment and management tasks.
 
 * **Cross-Platform Support**: Wei supports not only PCs but also various devices and operating systems. Whether you are using Windows, macOS, Linux, or other types of devices, Wei provides comprehensive support.
-
-[![Crates.io][crates-badge]][crates-url]
-[![MIT licensed][mit-badge]][mit-url]
-[![Build Status][actions-badge]][actions-url]
-
-[crates-badge]: https://img.shields.io/crates/v/wei.svg
-[crates-url]: https://crates.io/crates/wei
-[mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[mit-url]: https://github.com/zuiyue-com/wei/blob/master/LICENSE
-[actions-badge]: https://github.com/zuiyue-com/wei/workflows/CI/badge.svg
-[actions-url]: https://github.com/zuiyue-com/wei/actions?query=workflow%3ACI+branch%3Amaster
 
 ## Installation
 

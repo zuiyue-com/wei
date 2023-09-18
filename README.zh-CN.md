@@ -1,5 +1,16 @@
 # Wei
 
+[![Crates.io][crates-badge]][crates-url]
+[![MIT licensed][mit-badge]][mit-url]
+[![Build Status][actions-badge]][actions-url]
+
+[crates-badge]: https://img.shields.io/crates/v/wei.svg
+[crates-url]: https://crates.io/crates/wei
+[mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[mit-url]: https://github.com/zuiyue-com/wei/blob/master/LICENSE
+[actions-badge]: https://github.com/zuiyue-com/wei/workflows/CI/badge.svg
+[actions-url]: https://github.com/zuiyue-com/wei/actions?query=workflow%3ACI+branch%3Amaster
+
 Wei 是一个全平台的自动化管理工具，设计用于简化和自动化软件的安装、部署和管理过程。无论是 GitHub 上的开源软件，自定义软件，还是第三方应用程序，Wei 都能提供强大的功能支持。更重要的是，Wei 可以处理任何规模的系统，无论是单个设备，还是大规模集群。
 
 * **自动安装 GitHub 开源软件**: Wei 可以连接到你的 GitHub 账户，自动下载和安装你选择的开源软件。并且，它会持续追踪这些项目的更新，确保你的软件始终保持最新。
@@ -13,18 +24,6 @@ Wei 是一个全平台的自动化管理工具，设计用于简化和自动化�
 * **集群管理**: 无论是小规模的网络，还是大规模的企业级集群，Wei 都可以全自动部署和管理。你只需简单设置，Wei 就可以帮助你快速、准确地完成所有的部署和管理任务。
 
 * **全平台支持**: Wei 不仅支持 PC 机器，而且支持各种设备和操作系统。无论你是使用 Windows，macOS，还是 Linux，或者其他类型的设备，Wei 都可以提供全面的支持。
-
-[![Crates.io][crates-badge]][crates-url]
-[![MIT licensed][mit-badge]][mit-url]
-[![Build Status][actions-badge]][actions-url]
-
-[crates-badge]: https://img.shields.io/crates/v/wei.svg
-[crates-url]: https://crates.io/crates/wei
-[mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
-[mit-url]: https://github.com/zuiyue-com/wei/blob/master/LICENSE
-[actions-badge]: https://github.com/zuiyue-com/wei/workflows/CI/badge.svg
-[actions-url]: https://github.com/zuiyue-com/wei/actions?query=workflow%3ACI+branch%3Amaster
-
 
 ## 安装
 
