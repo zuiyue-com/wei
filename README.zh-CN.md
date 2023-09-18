@@ -8,7 +8,7 @@
 [crates-url]: https://crates.io/crates/wei
 [mit-badge]: https://img.shields.io/badge/license-MIT-blue.svg
 [mit-url]: https://github.com/zuiyue-com/wei/blob/master/LICENSE
-[actions-badge]: https://github.com/zuiyue-com/wei/workflows/CI/badge.svg
+[actions-badge]: https://github.com/zuiyue-com/wei/workflows/Windows/badge.svg
 [actions-url]: https://github.com/zuiyue-com/wei/actions?query=workflow%3ACI+branch%3Amaster
 
 Wei 是一个全平台的自动化管理工具，设计用于简化和自动化软件的安装、部署和管理过程。无论是 GitHub 上的开源软件，自定义软件，还是第三方应用程序，Wei 都能提供强大的功能支持。更重要的是，Wei 可以处理任何规模的系统，无论是单个设备，还是大规模集群。
