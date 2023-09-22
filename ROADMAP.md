@@ -6,6 +6,7 @@
 - [x] 创建本地服务：碰见重复的端口，则端口加1，写进配置文件
 - [x] 自动化提交新版本到微软白名单
 - [ ] 尝试修复防毒误报
+- [ ] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
 - [ ] 微软365 defender上报病毒
 - [ ] windows docker 安装
 - [ ] windows docker 容器
