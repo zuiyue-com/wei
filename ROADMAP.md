@@ -2,7 +2,7 @@
 
 - [ ] 证书签名
 - [ ] VMProtect
-- [ ] 
+- [ ] visual studio 签名：https://learn.microsoft.com/zh-cn/dotnet/framework/tools/signtool-exe
 
 ## 0.2
 
