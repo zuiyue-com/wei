@@ -2,7 +2,7 @@
 
 - [ ] 代码签名：不能解决误报，但是能建立信誉。
 - [ ] VMProtect
-- [ ] 
+- [ ] 上报visualtotal，仅通过Microsoft
 ## 0.2
 
 - [x] wei-ui 界面，安装软件，查询软件安装进度
