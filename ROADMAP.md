@@ -7,6 +7,7 @@
     - [ ] 显示 微软 报告情况及总误报数量
 - [ ] 代码混淆
     - [ ] VMProtect
+    - [ ] ConfuseRename
 - [ ] 代码签名：不能解决误报，但是能建立信誉。
 - [ ] 尝试使用不同电脑编译程序
 - [ ] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
