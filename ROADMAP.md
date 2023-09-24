@@ -13,6 +13,7 @@
 - [ ] 尝试使用不同电脑编译程序
 - [ ] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
 - [ ] 微软365 defender上报病毒
+- [ ] 代码编译成dll：后期只更新dll
 
 ## 0.2
 
