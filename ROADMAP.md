@@ -1,3 +1,20 @@
+## 误报解决方案
+
+- [ ] 上报visualtotal，仅通过Microsoft
+    - [ ] wei-updater build 转移到 wei-build
+    - [ ] wei-build 区分不同系统和产品
+    - [ ] 调用 visualtotal api
+    - [ ] 显示 微软 报告情况及总误报数量
+- [ ] 代码混淆
+    - [ ] VMProtect
+    - [ ] ConfuseRename
+    - [ ] ASM Guard
+- [ ] 代码签名：不能解决误报，但是能建立信誉。
+- [ ] 尝试使用不同电脑编译程序
+- [ ] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
+- [ ] 微软365 defender上报病毒
+- [ ] 代码编译成dll：后期只更新dll
+- [ ] Nim免杀
 
 ## 上线功能
 
@@ -12,9 +29,6 @@
 - [x] 测试各种文件夹情况，中文，文件夹带空格等
 - [x] 创建本地服务：碰见重复的端口，则端口加1，写进配置文件
 - [x] 自动化提交新版本到微软白名单
-- [ ] 尝试修复防毒误报 规则参考:https://www.virustotal.com/
-- [ ] 微软365 defender上报病毒
-- [ ] 删除远程比对下载远程文件
 - [ ] windows docker 安装
 - [ ] windows docker 容器
 - [ ] windows frp 穿透
