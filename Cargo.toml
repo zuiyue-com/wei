@@ -8,6 +8,13 @@ homepage = "https://github.com/zuiyue-com/wei"
 license = "MIT OR Apache-2.0"
 build = "build.rs"
 
+[package.metadata.winres]
+OriginalFilename = "WEI.EXE"
+LegalCopyright = "Copyright © 2023 ZUIYUE.COM"
+FileDescription = "WEI SYSTEM"
+ProductName = "WEI" 
+ProductVersion = "0.2.5"
+
 [package.metadata.windows]
 subsystem = "windows"
 
@@ -25,6 +32,7 @@ tokio = { version = "1", features = ["full"] }
 reqwest = { version = "0.11", features = ["json"] }
 single-instance = "0.3"
 sha2 = "0.10.7"
+winapi = { version = "0.3", features = ["winuser"] }
 
 #[target.'cfg(windows)'.dependencies]
 #winapi = { version = "0.3", features = ["winuser"] }

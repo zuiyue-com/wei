@@ -1,20 +1,25 @@
 ## 误报解决方案
 
-- [ ] 上报visualtotal，仅通过Microsoft
-    - [ ] wei-updater build 转移到 wei-build
-    - [ ] wei-build 区分不同系统和产品
-    - [ ] 调用 visualtotal api
-    - [ ] 显示 微软 报告情况及总误报数量
+- [x] 上报visualtotal，仅通过Microsoft
+    - [x] wei-updater build 转移到 wei-build
+    - [x] wei-build 区分不同系统和产品
+    - [x] 调用 visualtotal api
+    - [x] 显示 微软 报告情况及总误报数量
 - [ ] 代码混淆
     - [ ] VMProtect
     - [ ] ConfuseRename
     - [ ] ASM Guard
 - [ ] 代码签名：不能解决误报，但是能建立信誉。
-- [ ] 尝试使用不同电脑编译程序
-- [ ] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
-- [ ] 微软365 defender上报病毒
-- [ ] 代码编译成dll：后期只更新dll
-- [ ] Nim免杀
+- [x] 尝试使用不同电脑编译程序
+- [x] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
+- [x] 微软365 defender上报病毒
+- [x] 代码编译成dll：后期只更新dll，上传的dll什么也没有干，还是报毒
+- [x] Nim免杀: 其它种类语言，并非工具
+- [x] 完善右键信息
+- [x] 加大代码量，合成一个应用程序:不符合现在的开发逻辑
+- [x] 特定rust toolchain的版本的报毒率更低,使用debug版本报毒量少于release版本
+    - nightly-x86_64 1.74.0 ：2个
+    - stable-x86_64 rustc 1.72.1 : 1个
 
 ## 上线功能
 
@@ -33,7 +38,6 @@
 - [ ] windows docker 容器
 - [ ] windows frp 穿透
 - [ ] linux frp server 端口自动查找
-- [ ] 下载进度条，显示当前下载内容
 - [ ] 显示版本号在界面和托盘
 
 ## 0.3
