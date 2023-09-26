@@ -139,41 +139,42 @@ fn message(title: &str, text: &str) {
 }
 
 
-/// 先检查 data/checksum.dat,如果不存在直接下载https://download.zuiyue.com/os/latest/data/checksum.dat，通过 checksum.dat 下载所有最新的文件和应用程序。
-/// 碰到 data/checksum.dat 文件不统一的情况，先从 data/new/0.1.2 版本里面复制对应的文件到 data/ 目录下面，然后再检查，如果还是不统一，则从远程对应系统里面的latest下载所有最新的文件和应用程序。
-// async fn download_all() -> Result<(), Box<dyn std::error::Error>> {
+// 先检查 data/checksum.dat,如果不存在直接下载https://download.zuiyue.com/os/latest/data/checksum.dat，通过 checksum.dat 下载所有最新的文件和应用程序。
+// 碰到 data/checksum.dat 文件不统一的情况，先从 data/new/0.1.2 版本里面复制对应的文件到 data/ 目录下面，然后再检查，如果还是不统一，则从远程对应系统里面的latest下载所有最新的文件和应用程序。
+async fn _download_all() -> Result<(), Box<dyn std::error::Error>> {
     // 下载 format!("https://download.zuiyue.com/{}/latest/data/checksum.dat, std::env::consts::OS");
     // 读取checksum.dat里面的内容，内容格式是每一个文件一行，格式是 文件路径|||checksum
     // 使用 reqwest 下载这些文件对应的存放到指对应每一行的文件路径
     // Download the checksum file
-//     let checksum_path = Path::new("./data/checksum.dat");
-//     download_file("data/checksum.dat", checksum_path).await?;
-//     let checksums = read_checksums("./data/checksum.dat")?;
+    let checksum_path = Path::new("./data/checksum.dat");
+    _download_file("data/checksum.dat", checksum_path).await?;
+    let checksums = read_checksums("./data/checksum.dat")?;
     
-//     for (path, _checksum) in &checksums {
-//         let file_path = Path::new(path);
-//         download_file(&path, file_path).await?;
-//     }
+    for (path, _checksum) in &checksums {
+        let file_path = Path::new(path);
+        _download_file(&path, file_path).await?;
+    }
 
-//     Ok(())
-// }
+    Ok(())
+}
 
-// async fn download_file(file_path: &str, path: &Path) -> io::Result<()> {
-//     let url = format!("http://download.zuiyue.com/{}/latest/{}", std::env::consts::OS, file_path);
-//     if path.display().to_string() == "wei.exe" {
-//         return Ok(());
-//     }
-//     info!("Downloading {} to {}", url, path.display());
-//     // Create parent directory if it doesn't exist
-//     if let Some(parent) = path.parent() {
-//         fs::create_dir_all(parent)?;
-//     }
 
-//     let response = reqwest::get(url).await.unwrap();
+async fn _download_file(file_path: &str, path: &Path) -> io::Result<()> {
+    let url = format!("http://download.zuiyue.com/{}/latest/{}", std::env::consts::OS, file_path);
+    if path.display().to_string() == "wei.exe" {
+        return Ok(());
+    }
+    info!("Downloading {} to {}", url, path.display());
+    // Create parent directory if it doesn't exist
+    if let Some(parent) = path.parent() {
+        fs::create_dir_all(parent)?;
+    }
 
-//     let content = response.bytes().await.unwrap();
-//     // Write the file to disk
-//     fs::write(path, content)?;
+    let response = reqwest::get(url).await.unwrap();
 
-//     Ok(())
-// }
+    let content = response.bytes().await.unwrap();
+    // Write the file to disk
+    fs::write(path, content)?;
+
+    Ok(())
+}

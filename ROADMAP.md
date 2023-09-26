@@ -1,15 +1,16 @@
 ## 误报解决方案
 
+- [ ] 代码签名：不能解决误报，但是能建立信誉。
+- [ ] Microsoft: 使用最高级别上报
 - [x] 上报visualtotal，仅通过Microsoft
     - [x] wei-updater build 转移到 wei-build
     - [x] wei-build 区分不同系统和产品
     - [x] 调用 visualtotal api
     - [x] 显示 微软 报告情况及总误报数量
-- [ ] 代码混淆
-    - [ ] VMProtect
-    - [ ] ConfuseRename
-    - [ ] ASM Guard
-- [ ] 代码签名：不能解决误报，但是能建立信誉。
+- [x] 代码混淆
+    - [x] VMProtect: 报毒率为28%
+    - [x] ConfuseRename: 只能混淆.NET代码
+    - [x] ASM Guard: 直接报病毒，无法打开
 - [x] 尝试使用不同电脑编译程序
 - [x] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
 - [x] 微软365 defender上报病毒
