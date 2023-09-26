@@ -1,27 +1,3 @@
-## 误报解决方案
-
-- [ ] 代码签名：不能解决误报，但是能建立信誉。
-- [ ] Microsoft: 使用最高级别上报
-- [x] 上报visualtotal，仅通过Microsoft
-    - [x] wei-updater build 转移到 wei-build
-    - [x] wei-build 区分不同系统和产品
-    - [x] 调用 visualtotal api
-    - [x] 显示 微软 报告情况及总误报数量
-- [x] 代码混淆
-    - [x] VMProtect: 报毒率为28%
-    - [x] ConfuseRename: 只能混淆.NET代码
-    - [x] ASM Guard: 直接报病毒，无法打开
-- [x] 尝试使用不同电脑编译程序
-- [x] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
-- [x] 微软365 defender上报病毒
-- [x] 代码编译成dll：后期只更新dll，上传的dll什么也没有干，还是报毒
-- [x] Nim免杀: 其它种类语言，并非工具
-- [x] 完善右键信息
-- [x] 加大代码量，合成一个应用程序:不符合现在的开发逻辑
-- [x] 特定rust toolchain的版本的报毒率更低,使用debug版本报毒量少于release版本
-    - nightly-x86_64 1.74.0 ：2个
-    - stable-x86_64 rustc 1.72.1 : 1个
-
 ## 上线功能
 
 - [ ] 微软误报
@@ -36,6 +12,13 @@
 - [x] 创建本地服务：碰见重复的端口，则端口加1，写进配置文件
 - [x] 自动化提交新版本到微软白名单
 - [ ] windows docker 安装
+    - [ ] 下载 docker install
+    - [ ] 下载 ubuntu
+    - [ ] 判断下载情况
+    - [ ] wsl_update.msi
+    - [ ] 静默安装 docker install
+    - [ ] 静默安装 ubuntu
+    
 - [ ] windows docker 容器
 - [ ] windows frp 穿透
 - [ ] linux frp server 端口自动查找
@@ -65,3 +48,27 @@
 - [x] 守护类型自动退出：守护类型的程序当接收到退出代码，自动退出
 - [x] 退出关闭wei-ui,wei-tray
 - [x] 程序检测完整性
+
+## 误报解决方案
+
+- [x] 代码签名：不能解决误报，但是能建立信誉。
+- [x] Microsoft: 使用最高级别上报
+- [x] 上报visualtotal，仅通过Microsoft
+    - [x] wei-updater build 转移到 wei-build
+    - [x] wei-build 区分不同系统和产品
+    - [x] 调用 visualtotal api
+    - [x] 显示 微软 报告情况及总误报数量
+- [x] 代码混淆
+    - [x] VMProtect: 报毒率为28%
+    - [x] ConfuseRename: 只能混淆.NET代码
+    - [x] ASM Guard: 直接报病毒，无法打开
+- [x] 尝试使用不同电脑编译程序
+- [x] strip：https://rustmagazine.github.io/rust_magazine_2021/chapter_4/hw_bin_opt.html
+- [x] 微软365 defender上报病毒
+- [x] 代码编译成dll：后期只更新dll，上传的dll什么也没有干，还是报毒
+- [x] Nim免杀: 其它种类语言，并非工具
+- [x] 完善右键信息
+- [x] 加大代码量，合成一个应用程序:不符合现在的开发逻辑
+- [x] 特定rust toolchain的版本的报毒率更低,使用debug版本报毒量少于release版本
+    - nightly-x86_64 1.74.0 ：2个
+    - stable-x86_64 rustc 1.72.1 : 1个
