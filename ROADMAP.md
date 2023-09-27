@@ -1,8 +1,11 @@
 ## 上线功能
 
 - [ ] 微软误报
-- [ ] 浏览器正常使用，全平台
-- [ ] 正常更新
+    - [ ] wei 合并 wei-server 功能
+    - [ ] 分离wei-daemon为应用程序，wei-daemon只负责启动其它程序，如果报毒直接上传到微软
+    - [ ] wei-updater，以及wei-daemon不再进行更新，当出现报毒的情况，直接上传到微软
+- [x] 浏览器正常使用，全平台
+- [x] 正常更新
 - [ ] 任务模块联调
 
 ## 0.2
@@ -12,13 +15,6 @@
 - [x] 创建本地服务：碰见重复的端口，则端口加1，写进配置文件
 - [x] 自动化提交新版本到微软白名单
 - [ ] windows docker 安装
-    - [ ] 下载 docker install
-    - [ ] 下载 ubuntu
-    - [ ] 判断下载情况
-    - [ ] wsl_update.msi
-    - [ ] 静默安装 docker install
-    - [ ] 静默安装 ubuntu
-    
 - [ ] windows docker 容器
 - [ ] windows frp 穿透
 - [ ] linux frp server 端口自动查找

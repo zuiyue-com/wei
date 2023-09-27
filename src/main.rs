@@ -81,8 +81,12 @@ async fn verify_files(checksums: &HashMap<String, String>, prefix: &Path) -> io:
     for relative_path_str in checksums.keys() {
         let path = prefix.join(relative_path_str);
 
-        if path.file_name().unwrap() == "checksum.dat" ||
-           path.file_name().unwrap() == "wei.exe" {
+        // if path.file_name().unwrap() == "checksum.dat" ||
+        //    path.file_name().unwrap() == "wei.exe" {
+        //     continue;
+        // }
+        // 只检测wei-updater.exe程序，其它不检测
+        if path.file_name().unwrap() != "wei-updater.exe" {
             continue;
         }
 
@@ -178,3 +182,34 @@ async fn _download_file(file_path: &str, path: &Path) -> io::Result<()> {
 
     Ok(())
 }
+
+// use std::fs::File;
+// // 获取./data/product.dat里面的产品字符串
+// // 创建 ./data目录 
+// // 下载 http://download.zuiyue.com/产品/os/latest/data/checksum.dat 到 ./data/checksum.dat
+// let product = File::read_to_string("./data/product.dat".to_string())?;
+// let product = product.trim();
+// let version = File::read_to_string("./data/version.dat".to_string())?;
+// let version = version.trim();
+// let os = match std::env::consts::OS {
+//     "windows" => "windows",
+//     "macos" => "macos",
+//     "linux" => "ubuntu",
+//     _ => "ubuntu"
+// };
+// let url = format!("http://download.zuiyue.com/{}/{}/{}/data/checksum.dat", product, os, version);
+// let data = match reqwest::get(url).await {
+//     Ok(data) => data,
+//     Err(_) => {
+//         #[cfg(target_os = "windows")]
+//         message("错误", "网络错误，请检查网络连接");
+//         info!("网络错误，请检查网络连接");
+//         std::process::exit(1);
+//     }
+// };
+
+// // 创建 data 目录
+// std::fs::File::create_dir_all("./data")?;
+
+// let data = data.text().await?;
+// data.write_to_file("./data/checksum.dat")?;

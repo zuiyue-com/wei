@@ -23,7 +23,7 @@ winres = "0.1"
 
 [dependencies]
 wei-run = "0.1.23"
-wei-daemon = "0.2.20"
+wei-daemon = "0.2.22"
 wei-log = "0.2.5"
 # wei-run = { path = "../wei-run" }
 # wei-daemon = { path = "../wei-daemon" }
