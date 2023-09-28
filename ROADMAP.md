@@ -1,9 +1,11 @@
 ## 上线功能
 
 - [ ] 微软误报
-    - [ ] wei 合并 wei-server 功能
-    - [ ] 分离wei-daemon为应用程序，wei-daemon只负责启动其它程序，如果报毒直接上传到微软
-    - [ ] wei-updater，以及wei-daemon不再进行更新，当出现报毒的情况，直接上传到微软
+    - [x] wei 合并 wei-server 功能
+    - [x] 分离wei-daemon为应用程序，wei-daemon只负责启动其它程序，如果报毒直接上传到微软
+    - [x] wei-updater，以及wei-daemon不再进行更新，当出现报毒的情况，直接上传到微软
+    - [x] wei-build 先检测 product/windows/stable/wei-updater.exe 是否存在，如果存在则不再编译,复制wei-updater.exe到 product/windows/version/data/wei-updater.exe
+    - [ ] 测试上报 security.microsoft.com
 - [x] 浏览器正常使用，全平台
 - [x] 正常更新
 - [ ] 任务模块联调

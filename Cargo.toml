@@ -23,19 +23,9 @@ winres = "0.1"
 
 [dependencies]
 wei-run = "0.1.23"
-wei-daemon = "0.2.22"
 wei-log = "0.2.5"
-# wei-run = { path = "../wei-run" }
-# wei-daemon = { path = "../wei-daemon" }
 wei-env = "0.2.10"
-tokio = { version = "1", features = ["full"] }
-reqwest = { version = "0.11", features = ["json"] }
 single-instance = "0.3"
-sha2 = "0.10.7"
-winapi = { version = "0.3", features = ["winuser"] }
-
-#[target.'cfg(windows)'.dependencies]
-#winapi = { version = "0.3", features = ["winuser"] }
 
 [profile.release]
 opt-level = 'z'
