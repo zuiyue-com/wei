@@ -5,8 +5,9 @@
     - [x] 分离wei-daemon为应用程序，wei-daemon只负责启动其它程序，如果报毒直接上传到微软
     - [x] wei-updater，以及wei-daemon不再进行更新，当出现报毒的情况，直接上传到微软
     - [x] wei-build 先检测 product/windows/stable/wei-updater.exe 是否存在，如果存在则不再编译,复制wei-updater.exe到 product/windows/version/data/wei-updater.exe
-    - [ ] 测试上报 security.microsoft.com
-- [x] 浏览器正常使用，全平台
+    - [x] 测试上报 security.microsoft.com
+    - [ ] 进一步测试 wei-daemon.exe 是否会被误报，测试时间10天
+- [x] 浏览器正常使用，windows 11, windows 10
 - [x] 正常更新
 - [ ] 任务模块联调
 
@@ -16,7 +17,7 @@
 - [x] 测试各种文件夹情况，中文，文件夹带空格等
 - [x] 创建本地服务：碰见重复的端口，则端口加1，写进配置文件
 - [x] 自动化提交新版本到微软白名单
-- [ ] windows docker 安装
+- [x] windows docker 安装
 - [ ] windows docker 容器
 - [ ] windows frp 穿透
 - [ ] linux frp server 端口自动查找
