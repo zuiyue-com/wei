@@ -25,7 +25,7 @@ winres = "0.1"
 opt-level = 'z'
 
 [dependencies]
-wei-run = "0.2.2"
+wei-run = "0.2.3"
 wei-log = "0.2.5"
 wei-env = "0.2.10"
 single-instance = "0.3"
