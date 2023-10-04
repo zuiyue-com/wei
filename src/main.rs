@@ -1,5 +1,7 @@
 #![windows_subsystem = "windows"]
 
+use std::os::windows::process::CommandExt;
+
 #[macro_use]
 extern crate wei_log;
 
