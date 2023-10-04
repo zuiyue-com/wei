@@ -22,7 +22,7 @@ subsystem = "windows"
 winres = "0.1"
 
 [dependencies]
-wei-run = "0.2.1"
+wei-run = "0.2.2"
 wei-log = "0.2.5"
 wei-env = "0.2.10"
 single-instance = "0.3"

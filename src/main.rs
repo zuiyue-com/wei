@@ -17,7 +17,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     std::env::set_current_dir("./data")?;
 
     info!("run wei-daemon");
-    wei_run::run("wei-daemon", vec![])?;
+    //wei_run::run("wei-daemon", vec![])?;
+    wei_run::run("wei-server", vec![])?;
 
     info!("kill wei-tray and wei-ui");
     wei_run::kill("wei-tray")?;
