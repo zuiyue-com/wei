@@ -21,11 +21,12 @@ subsystem = "windows"
 [build-dependencies]
 winres = "0.1"
 
+[profile.release]
+opt-level = 'z'
+
 [dependencies]
 wei-run = "0.2.2"
 wei-log = "0.2.5"
 wei-env = "0.2.10"
 single-instance = "0.3"
-
-[profile.release]
-opt-level = 'z'
+winapi = { version = "0.3", features = ["winbase"] }

@@ -17,9 +17,16 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     std::env::set_current_dir("./data")?;
 
     info!("run wei-daemon");
-    //wei_run::run("wei-daemon", vec![])?;
-    wei_run::run("wei-server", vec![])?;
+    // 如果是windows系统则运行wei-daemon.ps1，其它系统则运行wei-daemon
+    #[cfg(not(target_os = "windows"))]
+    wei_run::run("wei-daemon", vec![])?;
 
+    #[cfg(target_os = "windows")]    
+    std::process::Command::new("powershell")
+        .arg("-ExecutionPolicy").arg("Bypass")
+        .arg("-File").arg("wei-daemon.ps1")
+        .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW).output()?;
+    
     info!("kill wei-tray and wei-ui");
     wei_run::kill("wei-tray")?;
     wei_run::kill("wei-ui")?;

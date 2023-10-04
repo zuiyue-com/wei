@@ -8,7 +8,7 @@
     - [x] 测试上报 security.microsoft.com
     - [x] 进一步测试 wei-daemon.exe 是否会被误报，测试时间10天
     - [x] 代码里面如果有包含 .exe 的代码需要清除
-    - [ ] 代码分离ps1
+    - [ ] 代码分离ps1,在wei-updater kill()调用 wei-daemon-close.ps1, wei 区分不同系统调用 wei-daemon.ps1 或者 wei-daemon.exe
 - [x] 浏览器正常使用，windows 11, windows 10
 - [x] 正常更新
 - [ ] 任务模块联调
