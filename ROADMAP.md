@@ -8,10 +8,11 @@
     - [x] 测试上报 security.microsoft.com
     - [x] 进一步测试 wei-daemon.exe 是否会被误报，测试时间10天
     - [x] 代码里面如果有包含 .exe 的代码需要清除
-    - [ ] 代码分离ps1,在wei-updater kill()调用 wei-daemon-close.ps1, wei 区分不同系统调用 wei-daemon.ps1 或者 wei-daemon.exe
+    - [x] 代码分离ps1,在wei-updater kill()调用 wei-daemon-close.ps1, wei 区分不同系统调用 wei-daemon.ps1 或者 wei-daemon.exe
 - [x] 浏览器正常使用，windows 11, windows 10
 - [x] 正常更新
 - [ ] 任务模块联调
+- [ ] 更新代码移到 wei-update.ps1
 - [ ] 测试：任务停止，才更新新版本
 
 ## 0.2
@@ -21,10 +22,10 @@
 - [x] 创建本地服务：碰见重复的端口，则端口加1，写进配置文件
 - [x] 自动化提交新版本到微软白名单
 - [x] windows docker 安装
-- [ ] windows docker 容器
+- [x] windows docker 容器
 - [ ] windows frp 穿透
 - [ ] linux frp server 端口自动查找
-- [ ] 显示版本号在界面和托盘
+- [ ] 显示版本号以产品名在界面和托盘
 
 ## 0.3
 
