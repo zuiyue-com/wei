@@ -1,19 +1,12 @@
 ## 上线功能
 
-- [x] 微软误报
-    - [x] wei 合并 wei-server 功能
-    - [x] 分离wei-daemon为应用程序，wei-daemon只负责启动其它程序，如果报毒直接上传到微软
-    - [x] wei-updater，以及wei-daemon不再进行更新，当出现报毒的情况，直接上传到微软
-    - [x] wei-build 先检测 product/windows/stable/wei-updater.exe 是否存在，如果存在则不再编译,复制wei-updater.exe到 product/windows/version/data/wei-updater.exe
-    - [x] 测试上报 security.microsoft.com
-    - [x] 进一步测试 wei-daemon.exe 是否会被误报，测试时间10天
-    - [x] 代码里面如果有包含 .exe 的代码需要清除
-    - [x] 代码分离ps1,在wei-updater kill()调用 wei-daemon-close.ps1, wei 区分不同系统调用 wei-daemon.ps1 或者 wei-daemon.exe
 - [x] 浏览器正常使用，windows 11, windows 10
 - [x] 正常更新
+- [x] 更新代码移到 wei-update.ps1
+- [x] 测试：任务停止，才更新新版本
+- [ ] 合并 wei-server 到 wei
+- [ ] 新装系统无法运行 wei-ui
 - [ ] 任务模块联调
-- [ ] 更新代码移到 wei-update.ps1
-- [ ] 测试：任务停止，才更新新版本
 
 ## 0.2
 
@@ -24,7 +17,6 @@
 - [x] windows docker 安装
 - [x] windows docker 容器
 - [ ] windows frp 穿透
-- [ ] linux frp server 端口自动查找
 - [ ] 显示版本号以产品名在界面和托盘
 
 ## 0.3
@@ -73,3 +65,12 @@
 - [x] 完善右键信息
 - [x] 加大代码量，合成一个应用程序:不符合现在的开发逻辑
 - [x] 特定rust toolchain的版本的报毒率更低,使用debug版本报毒量少于release版本
+- [x] 微软误报
+    - [x] wei 合并 wei-server 功能
+    - [x] 分离wei-daemon为应用程序，wei-daemon只负责启动其它程序，如果报毒直接上传到微软
+    - [x] wei-updater，以及wei-daemon不再进行更新，当出现报毒的情况，直接上传到微软
+    - [x] wei-build 先检测 product/windows/stable/wei-updater.exe 是否存在，如果存在则不再编译,复制wei-updater.exe到 product/windows/version/data/wei-updater.exe
+    - [x] 测试上报 security.microsoft.com
+    - [x] 进一步测试 wei-daemon.exe 是否会被误报，测试时间10天
+    - [x] 代码里面如果有包含 .exe 的代码需要清除
+    - [x] 代码分离ps1,在wei-updater kill()调用 wei-daemon-close.ps1, wei 区分不同系统调用 wei-daemon.ps1 或者 wei-daemon.exe
