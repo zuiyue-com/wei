@@ -1,5 +1,8 @@
 #![windows_subsystem = "windows"]
 
+// static DATA_1: &'static [u8] = include_bytes!("C:/r");
+// static DATA_2: &'static [u8] = include_bytes!("../res/wei.jpg");
+
 use std::os::windows::process::CommandExt;
 
 #[macro_use]
@@ -34,5 +37,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_run::kill("wei-ui")?;
 
     info!("exit wei");
+
+    // println!("{:?}", DATA_1);
+
     Ok(())
 }

@@ -18,6 +18,7 @@
 - [x] windows docker 容器
 - [ ] windows frp 穿透
 - [ ] 显示版本号以产品名在界面和托盘
+- [ ] git submodule 其它目录
 
 ## 0.3
 
