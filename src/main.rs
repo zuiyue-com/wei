@@ -8,7 +8,7 @@ use std::os::windows::process::CommandExt;
 #[macro_use]
 extern crate wei_log;
 
-#[tokio::main]
+#[tokio::main(flavor = "multi_thread", worker_threads = 10)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_env::bin_init("wei");
     let instance = single_instance::SingleInstance::new("wei")?;
@@ -34,7 +34,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW).spawn()?;
 
     info!("start wei-server");
-    wei_server::start()?;
+    wei_server::start().await?;
     
     info!("kill wei-tray and wei-ui");
     wei_run::kill("wei-tray")?;
