@@ -28,5 +28,7 @@ opt-level = 'z'
 wei-run = "0.2.5"
 wei-log = "0.2.5"
 wei-env = "0.2.10"
+wei-server = { path = "../wei-server" }
 single-instance = "0.3"
 winapi = { version = "0.3", features = ["winbase"] }
+tokio = { version = "1", features = ["full"] }
