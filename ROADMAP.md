@@ -4,8 +4,8 @@
 - [x] 正常更新
 - [x] 更新代码移到 wei-update.ps1
 - [x] 测试：任务停止，才更新新版本
-- [ ] 合并 wei-server 到 wei
-- [ ] 新装系统无法运行 wei-ui
+- [x] 合并 wei-server 到 wei
+- [x] 新装系统无法运行 wei-ui
 - [ ] 任务模块联调
 
 ## 0.2
