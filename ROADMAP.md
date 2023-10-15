@@ -48,13 +48,16 @@
 
 ## 误报解决方案
 
-- [x] 当文件大小超过一定大小，不误报
-- [x] 误报测试
-    - [x] 34,752 KB 误报
-    - [x] 45,056 KB 误报
-    - [x] 55,296 KB 无误报
-    - [x] 60,352 KB 无误报
-    - [x] 51.75 MB 无误报 https://www.virustotal.com/gui/file/6d9f20c53d132ddc7933ae3d5d99307e796be1ebb43d40c99fbb30029b545ef9?nocache=1
+- [x] 当文件大小超过一定50MB大小，误报降至1%以下
+
+- [x] 0.2.15 查询结果
+    - [x] 55.86 MB wei-ui.exe 误报 https://www.virustotal.com/gui/file/5a77d504f8e4f02ed2c0258106b7c546d8c7b0e0953808239a944ba4f3173dee?nocache=1
+    - [x] 51.75 MB wei.exe 无误报 https://www.virustotal.com/gui/file/6d9f20c53d132ddc7933ae3d5d99307e796be1ebb43d40c99fbb30029b545ef9?nocache=1
+    - [x] 53.49 MB wei-qbittorrent.exe 无误报 https://www.virustotal.com/gui/file/752f2ed8d6167ad00728406b9843aea5ba37a5e0177f6d6bf3e1d020220ec826
+    - [x] 53.65 MB wei-sd.exe 无误报 https://www.virustotal.com/gui/file/4c1128f1d5e5ca118e6b17e5ed9eec0310270a6f7dc15d07f799ef0fcdc45ed5
+    - [x] 53.71 MB wei-task.exe 无误报 https://www.virustotal.com/gui/file/b23797a52878bf5adf2e736d503769d7932241793beb30846f2b8e77127b9407
+    - [x] 52.98 MB wei-updater.exe 无误报 https://www.virustotal.com/gui/file/1962203f17eec5bc73a7825995391f952e655a446225568c7b7283a72a53ffe6?nocache=1
+    
 - [x] 代码签名：不能解决误报，但是能建立信誉。
 - [x] Microsoft: 使用最高级别上报
 - [x] 上报visualtotal，仅通过Microsoft
