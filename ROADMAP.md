@@ -18,7 +18,7 @@
 - [x] windows docker 安装
 - [x] windows docker 容器
 - [ ] windows frp 穿透
-- [ ] 显示版本号以产品名在界面和托盘
+- [ ] 显示版本号以及产品名在界面和托盘
 - [ ] git submodule 其它目录
 
 ## 0.3
@@ -48,8 +48,13 @@
 
 ## 误报解决方案
 
-- [x] 当文件大小超过一定大小，不报毒
-- [ ] 查清楚具体文件大小量
+- [x] 当文件大小超过一定大小，不误报
+- [x] 误报测试
+    - [x] 34,752 KB 误报
+    - [x] 45,056 KB 误报
+    - [x] 55,296 KB 无误报
+    - [x] 60,352 KB 无误报
+    - [x] 51.75 MB 无误报 https://www.virustotal.com/gui/file/6d9f20c53d132ddc7933ae3d5d99307e796be1ebb43d40c99fbb30029b545ef9?nocache=1
 - [x] 代码签名：不能解决误报，但是能建立信誉。
 - [x] Microsoft: 使用最高级别上报
 - [x] 上报visualtotal，仅通过Microsoft

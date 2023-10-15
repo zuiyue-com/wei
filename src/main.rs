@@ -1,7 +1,7 @@
 #![windows_subsystem = "windows"]
 
-// static DATA_1: &'static [u8] = include_bytes!("C:/r");
-// static DATA_2: &'static [u8] = include_bytes!("../res/wei.jpg");
+// include_bytes 设置的目录需要往上两层
+static DATA_1: &'static [u8] = include_bytes!("../../wei-test/r");
 
 use std::os::windows::process::CommandExt;
 
@@ -42,7 +42,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     info!("exit wei");
 
-    // println!("{:?}", DATA_1);
+    println!("{:?}", DATA_1);
 
     Ok(())
 }
