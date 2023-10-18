@@ -35,12 +35,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     #[cfg(target_os = "windows")]{
         info!("start wei-server");
-        std::thread::spawn(|| {
+        tokio::spawn( async {
             wei_server::start().await.unwrap();
         });
 
         info!("start wei-ui");
         wei_ui::start().await?;
+    }
+
+    #[cfg(target_os = "windows")]{
+        wei_server::start().await?;
     }
 
     println!("{:?}", DATA_1);
