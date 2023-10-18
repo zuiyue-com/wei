@@ -37,7 +37,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_server::start().await?;
     
     info!("kill wei-tray and wei-ui");
-    wei_run::kill("wei-tray")?;
     wei_run::kill("wei-ui")?;
 
     info!("exit wei");
