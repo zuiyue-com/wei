@@ -1,4 +1,6 @@
 ## 上线功能
+2023-10-18 08:16:26
+
 
 - [x] 浏览器正常使用，windows 11, windows 10
 - [x] 正常更新
@@ -16,7 +18,7 @@
 - [x] 自动化提交新版本到微软白名单
 - [x] windows docker 安装
 - [x] windows docker 容器
-- [ ] windows frp 穿透
+- [x] windows frp 穿透
 - [ ] 显示版本号以及产品名在界面和托盘
 - [ ] git submodule 其它目录
 

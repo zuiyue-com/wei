@@ -1,0 +1,25 @@
+name: Update ROADMAP
+
+on:
+  schedule:
+    - cron: '*/1 * * * *' # Runs every 5 minutes
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Update ROADMAP
+      run: |
+        DATE=$(date +'%Y-%m-%d %H:%M:%S')
+        sed -i "2s/.*/$DATE/" ROADMAP.md
+
+    - name: Commit and push if changed
+      run: |
+        git diff
+        git config --global user.email "market@zuiyue.com"
+        git config --global user.name "market"
+        git commit -am "Update ROADMAP.md" && git push origin
