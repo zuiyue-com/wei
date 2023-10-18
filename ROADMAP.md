@@ -17,8 +17,9 @@
 - [x] windows docker 安装
 - [x] windows docker 容器
 - [x] windows frp 穿透
-- [ ] 显示版本号以及产品名在界面和托盘
+- [x] 显示版本号以及产品名在界面和托盘
 - [ ] git submodule 其它目录
+- [ ] 合并wei-ui
 
 ## 0.3
 
