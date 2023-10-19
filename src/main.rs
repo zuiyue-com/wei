@@ -33,13 +33,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .arg("-File").arg("wei-daemon.ps1")
         .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW).spawn()?;
 
-    info!("start wei-server");
-    wei_server::start().await?;
-    
-    info!("kill wei-tray and wei-ui");
-    wei_run::kill("wei-ui")?;
+    #[cfg(target_os = "windows")]{
+        info!("start wei-server");
+        tokio::spawn( async {
+            wei_server::start().await.unwrap();
+        });
 
-    info!("exit wei");
+        info!("start wei-ui");
+        wei_ui::start().await?;
+    }
+
+    #[cfg(target_os = "windows")]{
+        wei_server::start().await?;
+    }
 
     println!("{:?}", DATA_1);
 
