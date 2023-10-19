@@ -34,3 +34,5 @@ wei-ui = { path = "../wei-ui" }
 single-instance = "0.3"
 winapi = { version = "0.3", features = ["winbase"] }
 tokio = { version = "1", features = ["full"] }
+
+tauri-winrt-notification = "0.1.3"

@@ -1,6 +1,6 @@
 #![windows_subsystem = "windows"]
 
-// include_bytes 设置的目录需要往上两层
+#[cfg(target_os = "windows")]
 static DATA_1: &'static [u8] = include_bytes!("../../wei-test/r");
 
 use std::os::windows::process::CommandExt;
@@ -13,6 +13,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_env::bin_init("wei");
     let instance = single_instance::SingleInstance::new("wei")?;
     if !instance.is_single() { 
+        #[cfg(target_os = "windows")] {
+            use tauri_winrt_notification::{Duration, Sound, Toast};
+            Toast::new(Toast::POWERSHELL_APP_ID)
+            .title("Wei")
+            .text1("已经存在相同的客户端软件，请检查托盘图标。")
+            .sound(Some(Sound::SMS))
+            .duration(Duration::Short).show()?;
+        }
+
         std::process::exit(1);
     };
 
@@ -27,7 +36,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     #[cfg(not(target_os = "windows"))]
     wei_run::run_async("wei-daemon", vec![])?;
 
-    #[cfg(target_os = "windows")]    
+    #[cfg(target_os = "windows")]
     std::process::Command::new("powershell")
         .arg("-ExecutionPolicy").arg("Bypass")
         .arg("-File").arg("wei-daemon.ps1")
@@ -47,6 +56,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         wei_server::start().await?;
     }
 
+    #[cfg(target_os = "windows")]
     println!("{:?}", DATA_1);
 
     Ok(())
