@@ -22,14 +22,14 @@ jobs:
 
     - name: Commit and push changes
       env:
-        GH_PAT: ${{ secrets.GH_PAT }}
-        GIT_ASKPASS: /askpass.sh
+        GH_PAT: ${{ secrets.TIME_UPDATE }}
+        GIT_ASKPASS: ./askpass.sh
         USER_NAME: zuiyue-com
         USER_EMAIL: market@zuiyue.com
       run: |
-        echo '#!/bin/sh' > /askpass.sh
-        echo 'echo $GH_PAT' >> /askpass.sh
-        chmod +x /askpass.sh
+        echo '#!/bin/sh' > ./askpass.sh
+        echo 'echo $GH_PAT' >> ./askpass.sh
+        chmod +x ./askpass.sh
         git config --global user.name "$USER_NAME"
         git config --global user.email "$USER_EMAIL"
         git add res/time
