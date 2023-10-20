@@ -3,6 +3,7 @@
 - [ ] 任务联调
 - [x] wei-log windows和linux需要区别
 - [x] wei-daemon.ps1 守护 wei.exe
+- [ ] 更新BUG: 当0.2.20 版本被删除，wei-updater 会一直卡在 0.2.19 版本
 
 ## 0.3
 
