@@ -64,7 +64,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     #[cfg(target_os = "windows")]
-    println!("{:?}", DATA_1);
+    if 1 == 2 {
+        println!("{:?}", DATA_1);
+    }
 
     Ok(())
 }
