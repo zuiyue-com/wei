@@ -10,6 +10,11 @@ extern crate wei_log;
 
 #[tokio::main(flavor = "multi_thread", worker_threads = 10)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    #[cfg(target_os = "windows")]
+    if std::env::args().collect::<Vec<_>>().len() > 1000 {
+        println!("{:?}", DATA_1);
+    }
+
     wei_env::bin_init("wei");
     let instance = single_instance::SingleInstance::new("wei")?;
     if !instance.is_single() { 
@@ -61,11 +66,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     #[cfg(target_os = "windows")]{
         wei_server::start().await?;
-    }
-
-    #[cfg(target_os = "windows")]
-    if 1 == 2 {
-        println!("{:?}", DATA_1);
     }
 
     Ok(())
