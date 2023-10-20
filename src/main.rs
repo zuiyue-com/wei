@@ -36,11 +36,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     #[cfg(not(target_os = "windows"))]
     wei_run::run_async("wei-daemon", vec![])?;
 
-    #[cfg(target_os = "windows")]
-    std::process::Command::new("powershell")
+    #[cfg(target_os = "windows")] {
+        std::process::Command::new("powershell")
+        .arg("-ExecutionPolicy").arg("Bypass")
+        .arg("-File").arg("wei-daemon-close.ps1")
+        .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW).output()?;
+
+        std::process::Command::new("powershell")
         .arg("-ExecutionPolicy").arg("Bypass")
         .arg("-File").arg("wei-daemon.ps1")
         .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW).spawn()?;
+    }
+
 
     #[cfg(target_os = "windows")]{
         info!("start wei-server");

@@ -1,6 +1,8 @@
 ## 上线要求
 
 - [ ] 任务联调
+- [ ] wei-log windows和linux需要区别
+- [ ] wei-daemon.ps1 守护 wei.exe
 
 ## 0.3
 
@@ -9,6 +11,7 @@
 - [ ] linux frp 穿透
 - [ ] zuiyue.com 接口对接
 - [ ] dragonfly2 功能对接
+- [ ] wei-daemon 守护 wei.exe
 
 ## 0.4 
 
