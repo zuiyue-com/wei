@@ -1,8 +1,8 @@
 ## 上线要求
 
 - [ ] 任务联调
-- [ ] wei-log windows和linux需要区别
-- [ ] wei-daemon.ps1 守护 wei.exe
+- [x] wei-log windows和linux需要区别
+- [x] wei-daemon.ps1 守护 wei.exe
 
 ## 0.3
 
