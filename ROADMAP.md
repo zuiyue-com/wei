@@ -24,12 +24,20 @@
 - [ ] 误报解决方案：
     - [x] 360优先，微软次之，Google最后
     - [x] 第一步：编译文件超过50MB
+        - [ ] 加大代码量及捆版知名软件
     - [ ] 第二步：代码签名
     - [ ] 第三步：加大装机量
     - [ ] 第四步：当装机量达到一定程度之后，观察阈值并记录
     - [ ] 第五步：缩减文件大小
 
-- [x] 当文件大小超过一定50MB，误报降至1%以下
+- [x] 当文件大小超过50MB，误报降至1%以下
+
+- [ ] 0.2.28 捆版 chrome 测试结果
+    wei.exe 10.57MB https://www.virustotal.com/gui/file/7dcfc221628876b311bc1c8c13c2cd337a76c2dd5b7903cae8783187ec954225
+    wei-updater 5.91MB https://www.virustotal.com/gui/file/944639f0882260a190be544648f722225beec84255fb41aa94653ddcd1eec726
+    wei-qbittorrent.exe 6.85MB https://www.virustotal.com/gui/file/2021ed7733ffc5f2dbf20bf8a3b42a9037cc57b3a51ce02d8a155cfbed86a85f
+    wei-task.exe 6.69MB https://www.virustotal.com/gui/file/3c5d125c1b570c3093807916bf5281ed027b17128154ba44123783636c544c38
+    wei-sd.exe 6.66MB https://www.virustotal.com/gui/file/27999ea7bda35dbbd170f44a2c1e29fa2041a50df80498d4eba22f644d554488
 
 - [x] 0.2.15 查询结果
     - [x] 55.86 MB wei-ui.exe 误报 https://www.virustotal.com/gui/file/5a77d504f8e4f02ed2c0258106b7c546d8c7b0e0953808239a944ba4f3173dee?nocache=1
