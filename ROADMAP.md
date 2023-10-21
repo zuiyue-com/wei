@@ -14,7 +14,7 @@
 - [ ] dragonfly2 功能对接
 - [ ] wei-daemon 守护 wei.exe
 
-## 0.4 
+## 0.4
 
 - [ ] 集群化管理
 - [ ] 集群界面编写
@@ -24,13 +24,20 @@
 - [ ] 误报解决方案：
     - [x] 360优先，微软次之，Google最后
     - [x] 第一步：编译文件超过50MB
-        - [ ] 加大代码量及捆版知名软件
+        - [x] 捆版知名软件19MB
     - [ ] 第二步：代码签名
     - [ ] 第三步：加大装机量
     - [ ] 第四步：当装机量达到一定程度之后，观察阈值并记录
     - [ ] 第五步：缩减文件大小
 
 - [x] 当文件大小超过50MB，误报降至1%以下
+
+- [ ] 0.2.28 捆绑 测试结果 初测报毒量为 1/71
+    wei.exe 23.51MB https://www.virustotal.com/gui/file/8bb49729e7eb9e5098be4d37439b9f918cbdb39b55c6aff2e5d159ac7497da31
+    wei-updater.exe 20.04MB https://www.virustotal.com/gui/file/8f0831053978d5339493a900627fb683b003c20e35a1d71de3008c8f290334bb
+    wei-qbittorrent.exe 19.80MB https://www.virustotal.com/gui/file/f208766f3c162aa607e3de21fe056ac20acdefba68b6a0e99709e13468bd0625
+    wei-task.exe 19.64MB https://www.virustotal.com/gui/file/0737ae1a43d4c75d555191b10927f1f444ffc4d939d105ec6968a0431ff92820
+    wei-sd.exe 19.60MB https://www.virustotal.com/gui/file/0191deb73bb2490d645d2edd500c6af9d6d7637083be88e2446928f60cbfbcb3
 
 - [ ] 0.2.28 捆版 chrome 测试结果
     wei.exe 10.57MB https://www.virustotal.com/gui/file/7dcfc221628876b311bc1c8c13c2cd337a76c2dd5b7903cae8783187ec954225
