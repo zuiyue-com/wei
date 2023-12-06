@@ -13,7 +13,7 @@ OriginalFilename = "WEI.EXE"
 LegalCopyright = "Copyright © 2023 ZUIYUE.COM"
 FileDescription = "WEI SYSTEM"
 ProductName = "WEI" 
-ProductVersion = "0.2.5"
+ProductVersion = "1.0.0"
 
 [package.metadata.windows]
 subsystem = "windows"
