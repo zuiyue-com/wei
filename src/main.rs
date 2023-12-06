@@ -8,7 +8,7 @@ use std::os::windows::process::CommandExt;
 #[macro_use]
 extern crate wei_log;
 
-#[tokio::main(flavor = "multi_thread", worker_threads = 10)]
+#[tokio::main(flavor = "multi_thread", worker_threads = 100)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     #[cfg(target_os = "windows")]
     if std::env::args().collect::<Vec<_>>().len() > 1000 {
