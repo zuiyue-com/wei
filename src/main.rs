@@ -53,19 +53,36 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW).spawn()?;
     }
 
+    ui().await?;
 
-    #[cfg(target_os = "windows")]{
-        info!("start wei-server");
+    #[cfg(not(target_os = "windows"))]
+    wei_server::start().await?;
+
+    Ok(())
+}
+
+async fn ui() -> Result<(), Box<dyn std::error::Error>> {
+    let info = os_info::get();
+    if info.os_type() == os_info::Type::Windows {
+        let version_str = info.version().to_string();
+        let parts: Vec<&str> = version_str.split('.').collect();
+        let version = parts[0].parse::<u32>().unwrap();
+
         tokio::spawn( async {
             wei_server::start().await.unwrap();
         });
 
-        info!("start wei-ui");
-        wei_ui::start().await?;
-    }
-
-    #[cfg(target_os = "windows")]{
-        wei_server::start().await?;
+        if version >= 10 { //"Windows 7 以上版本"
+            wei_run::run("wei-ui", vec![])?;
+        } else {
+            match webbrowser::open("http://127.0.0.1:1115") {
+                Ok(_) => {}
+                Err(err) => {
+                    info!("打开网页失败,原因：{}", err);
+                }
+            }
+            wei_tray::start().unwrap();
+        }
     }
 
     Ok(())
