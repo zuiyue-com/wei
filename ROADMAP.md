@@ -1,13 +1,13 @@
 ## 上线要求
 
 - [ ] 任务联调
-    - [ ] 任务模块使用消费者模式
-        - [ ] 任务模块需要通过命令行模式运行子任务处理系统。
+    - [x] 任务模块使用消费者模式
+        - [x] 任务模块需要通过命令行模式运行子任务处理系统。
               任务出错导致任务报告崩溃
     - [ ] 算力出租功能    
     - [ ] wei-sd 安装功能
     - [ ] wei-sd 模型下载
-- [ ] wei 提供数据库读写存储功能
+- [x] wei 提供数据库读写存储功能
 - [x] wei-log windows和linux需要区别
 - [x] wei-daemon.ps1 守护 wei.exe
 
@@ -39,14 +39,14 @@
 
 - [x] 当文件大小超过50MB，误报降至1%以下
 
-- [ ] 0.2.28 捆绑 测试结果 初测报毒量为 1/71
+- [x] 0.2.28 捆绑 测试结果 初测报毒量为 1/71
     wei.exe 23.51MB https://www.virustotal.com/gui/file/8bb49729e7eb9e5098be4d37439b9f918cbdb39b55c6aff2e5d159ac7497da31
     wei-updater.exe 20.04MB https://www.virustotal.com/gui/file/8f0831053978d5339493a900627fb683b003c20e35a1d71de3008c8f290334bb
     wei-qbittorrent.exe 19.80MB https://www.virustotal.com/gui/file/f208766f3c162aa607e3de21fe056ac20acdefba68b6a0e99709e13468bd0625
     wei-task.exe 19.64MB https://www.virustotal.com/gui/file/0737ae1a43d4c75d555191b10927f1f444ffc4d939d105ec6968a0431ff92820
     wei-sd.exe 19.60MB https://www.virustotal.com/gui/file/0191deb73bb2490d645d2edd500c6af9d6d7637083be88e2446928f60cbfbcb3
 
-- [ ] 0.2.28 捆版 chrome 测试结果
+- [x] 0.2.28 捆版 chrome 测试结果
     wei.exe 10.57MB https://www.virustotal.com/gui/file/7dcfc221628876b311bc1c8c13c2cd337a76c2dd5b7903cae8783187ec954225
     wei-updater 5.91MB https://www.virustotal.com/gui/file/944639f0882260a190be544648f722225beec84255fb41aa94653ddcd1eec726
     wei-qbittorrent.exe 6.85MB https://www.virustotal.com/gui/file/2021ed7733ffc5f2dbf20bf8a3b42a9037cc57b3a51ce02d8a155cfbed86a85f

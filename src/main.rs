@@ -34,6 +34,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     wei_env::start();
 
     info!("set_current_dir ./data");
+    // 获取exe路径
+    let exe_path = std::env::current_exe()?;
+    // 设置exe路径为当前路径
+    std::env::set_current_dir(exe_path.parent().unwrap())?;
     std::env::set_current_dir("./data")?;
 
     info!("run wei-daemon");
