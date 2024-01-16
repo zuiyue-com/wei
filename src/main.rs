@@ -1,7 +1,7 @@
 #![cfg_attr(target_os = "windows", windows_subsystem = "windows")]
 
 #[cfg(target_os = "windows")]
-static DATA_1: &'static [u8] = include_bytes!("../../wei-release/windows/qbittorrent/qbittorrent.exe");
+static DATA_1: &'static [u8] = include_bytes!("../../wei-release/windows/san/san.txt");
 
 use std::os::windows::process::CommandExt;
 
