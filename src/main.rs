@@ -1,8 +1,4 @@
 #![cfg_attr(target_os = "windows", windows_subsystem = "windows")]
-
-#[cfg(target_os = "windows")]
-static DATA_1: &'static [u8] = include_bytes!("../../wei-release/windows/san/san.txt");
-
 use std::os::windows::process::CommandExt;
 
 #[macro_use]
@@ -10,11 +6,7 @@ extern crate wei_log;
 
 #[tokio::main(flavor = "multi_thread", worker_threads = 100)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    #[cfg(target_os = "windows")]
-    if std::env::args().collect::<Vec<_>>().len() > 1000 {
-        println!("{:?}", DATA_1);
-    }
-
+    wei_windows::init();
     wei_env::bin_init("wei");
     let instance = single_instance::SingleInstance::new("wei")?;
     if !instance.is_single() { 
@@ -57,37 +49,40 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .creation_flags(winapi::um::winbase::CREATE_NO_WINDOW).spawn()?;
     }
 
-    ui().await?;
+    #[cfg(target_os = "windows")]
+    wei_run::run("wei-ui", vec![])?;
 
     #[cfg(not(target_os = "windows"))]
-    wei_server::start().await?;
-
-    Ok(())
-}
-
-async fn ui() -> Result<(), Box<dyn std::error::Error>> {
-    let info = os_info::get();
-    if info.os_type() == os_info::Type::Windows {
-        let version_str = info.version().to_string();
-        let parts: Vec<&str> = version_str.split('.').collect();
-        let version = parts[0].parse::<u32>().unwrap();
-
-        tokio::spawn( async {
-            wei_server::start().await.unwrap();
-        });
-
-        if version >= 10 { //"Windows 7 以上版本"
-            wei_run::run("wei-ui", vec![])?;
-        } else {
-            match webbrowser::open("http://127.0.0.1:1115") {
-                Ok(_) => {}
-                Err(err) => {
-                    info!("打开网页失败,原因：{}", err);
-                }
-            }
-            wei_tray::start().unwrap();
-        }
+    loop {
+        tokio::time::sleep(tokio::time::Duration::from_secs(1000)).await;
     }
 
     Ok(())
 }
+
+// async fn ui() -> Result<(), Box<dyn std::error::Error>> {
+//     let info = os_info::get();
+//     if info.os_type() == os_info::Type::Windows {
+//         let version_str = info.version().to_string();
+//         let parts: Vec<&str> = version_str.split('.').collect();
+//         let version = parts[0].parse::<u32>().unwrap();
+
+//         tokio::spawn( async {
+//             wei_server::start().await.unwrap();
+//         });
+
+//         if version >= 10 { //"Windows 7 以上版本"
+//             wei_run::run("wei-ui", vec![])?;
+//         } else {
+//             match webbrowser::open("http://127.0.0.1:1115") {
+//                 Ok(_) => {}
+//                 Err(err) => {
+//                     info!("打开网页失败,原因：{}", err);
+//                 }
+//             }
+//             wei_tray::start().unwrap();
+//         }
+//     }
+
+//     Ok(())
+// }

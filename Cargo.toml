@@ -28,8 +28,9 @@ opt-level = 'z'
 wei-run = "0.2.5"
 wei-log = "0.2.10"
 wei-env = "0.2.13"
-wei-server = { path = "../wei-server" }
-wei-tray = { path = "../wei-tray" }
+wei-windows = { path = "../wei-windows"}
+# wei-server = { path = "../wei-server" }
+# wei-tray = { path = "../wei-tray" }
 # wei-ui = { path = "../wei-ui" }
 
 single-instance = "0.3"
