@@ -6,6 +6,24 @@ extern crate wei_log;
 
 #[tokio::main(flavor = "multi_thread", worker_threads = 100)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    match wei::init() {
+        Ok(_) => {
+            info!("init success");
+        }
+        Err(err) => {
+            info!("init error: {}", err);
+            println!("init error: {}", err);
+            #[cfg(target_os = "windows")] {
+                use tauri_winrt_notification::{Duration, Sound, Toast};
+                Toast::new(Toast::POWERSHELL_APP_ID)
+                .title("Wei")
+                .text1(&err.to_string())
+                .sound(Some(Sound::SMS))
+                .duration(Duration::Short).show()?;
+            }
+        }
+    };
+
     wei_windows::init();
     wei_env::bin_init("wei");
     let instance = single_instance::SingleInstance::new("wei")?;

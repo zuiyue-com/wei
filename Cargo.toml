@@ -34,9 +34,10 @@ wei-windows = { path = "../wei-windows"}
 # wei-ui = { path = "../wei-ui" }
 
 single-instance = "0.3"
-winapi = { version = "0.3", features = ["winbase"] }
+winapi = { version = "0.3", features = ["winbase", "shellapi"] }
 tokio = { version = "1", features = ["full"] }
 
 tauri-winrt-notification = "0.1.3"
 os_info = "3.7.0"
-webbrowser = "0.8.12"
+
+ureq = "2.9.6"
