@@ -93,10 +93,8 @@ fn toast(data: &str) -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
-use std::io::{self, Write};
-use ureq::Response;
+use std::io::Write;
 use std::fs::File;
-use std::path::Path;
 
 fn download_file_and_verify_size(url: &str, dest: &str, expected_size: u64) -> Result<bool, Box<dyn std::error::Error>> {
     let mut response = ureq::get(url).call()?.into_reader();
