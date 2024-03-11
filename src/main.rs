@@ -1,4 +1,6 @@
 #![cfg_attr(target_os = "windows", windows_subsystem = "windows")]
+
+#[cfg(target_os = "windows")]
 use std::os::windows::process::CommandExt;
 
 #[macro_use]

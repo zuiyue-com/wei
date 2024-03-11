@@ -25,7 +25,7 @@ winres = "0.1"
 opt-level = 'z'
 
 [dependencies]
-wei-run = "0.2.5"
+wei-run = "0.3.1"
 wei-log = "0.2.10"
 wei-env = "0.2.13"
 wei-windows = { path = "../wei-windows"}
