@@ -28,12 +28,10 @@ opt-level = 'z'
 wei-run = "0.3.1"
 wei-log = "0.2.10"
 wei-env = "0.2.13"
-wei-windows = { path = "../wei-windows"}
-# wei-server = { path = "../wei-server" }
-# wei-tray = { path = "../wei-tray" }
-# wei-ui = { path = "../wei-ui" }
+wei-single = "0.3"
 
-single-instance = "0.3"
+wei-windows = { path = "../wei-windows"}
+
 winapi = { version = "0.3", features = ["winbase", "shellapi"] }
 tokio = { version = "1", features = ["full"] }
 
