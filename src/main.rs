@@ -29,7 +29,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     wei_windows::init();
     wei_env::bin_init("wei");
-    let instance = single_instance::SingleInstance::new("wei")?;
+    let instance = wei_single::SingleInstance::new("wei")?;
     if !instance.is_single() { 
         #[cfg(target_os = "windows")] {
             use tauri_winrt_notification::{Duration, Sound, Toast};
