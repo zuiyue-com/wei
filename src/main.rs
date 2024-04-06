@@ -8,6 +8,39 @@ extern crate wei_log;
 
 #[tokio::main(flavor = "multi_thread", worker_threads = 100)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let args = std::env::args().collect::<Vec<String>>();
+    if args.len() > 1 {
+        if args[1] == "install" {
+            // 获取当前WEI的执行目录
+            let exe_path = std::env::current_exe()?;
+            // 获取exe路径
+            let exe_path = exe_path.parent().unwrap();
+
+            let data = r#"
+[Unit]
+Description=wei
+
+[Service]
+Restart=always
+RestartSec=30
+TimeoutStartSec=0
+
+User=root
+ExecStartPre=-/usr/bin/killall wei
+ExecStart=$PATH/wei
+ExecStop=/usr/bin/killall wei
+
+[Install]
+WantedBy=multi-user.target
+"#.replace("$PATH", exe_path.to_str().unwrap());
+            std::fs::write("/etc/systemd/system/wei.service", data)?;
+            wei_run::run("systemctl", vec!["enable", "wei"])?;
+            wei_run::run("systemctl", vec!["restart", "wei"])?;
+
+            std::process::exit(0);
+        }
+    }
+
     #[cfg(target_os = "windows")]
     match wei::init() {
         Ok(_) => {

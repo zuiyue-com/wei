@@ -28,14 +28,15 @@ opt-level = 'z'
 wei-run = "0.3.1"
 wei-log = "0.2.10"
 wei-env = "0.2.13"
-wei-single = "0.3"
+wei-single = "0.3.6"
 
 wei-windows = { path = "../wei-windows"}
 
-winapi = { version = "0.3", features = ["winbase", "shellapi"] }
 tokio = { version = "1", features = ["full"] }
-
-tauri-winrt-notification = "0.1.3"
 os_info = "3.7.0"
-
 ureq = "2.9.6"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["winbase", "shellapi"] }
+tauri-winrt-notification = "0.1.3"
+

@@ -83,12 +83,14 @@ fn install() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn toast(data: &str) -> Result<(), Box<dyn std::error::Error>> {
-    use tauri_winrt_notification::{Duration, Sound, Toast};
-    Toast::new(Toast::POWERSHELL_APP_ID)
-    .title("Wei")
-    .text1(data)
-    .sound(Some(Sound::SMS))
-    .duration(Duration::Short).show()?;
+    #[cfg(target_os = "windows")] {
+        use tauri_winrt_notification::{Duration, Sound, Toast};
+        Toast::new(Toast::POWERSHELL_APP_ID)
+        .title("Wei")
+        .text1(data)
+        .sound(Some(Sound::SMS))
+        .duration(Duration::Short).show()?;
+    }
 
     Ok(())
 }
