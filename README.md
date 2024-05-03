@@ -27,9 +27,7 @@ Wei is a cross-platform automation management tool designed to simplify and auto
 
 ## Installation
 
-Currently, the Wei project is in its initial stages. Our team is actively developing and testing various features to ensure Wei provides the best user experience.
-
-While we have not yet released any official versions, we are very excited to share our progress with the community. We will continue to update the project's status and progress on GitHub throughout the development process.
+curl http://src.xlai.cc/wei/install.sh | sh
 
 ## Contributing
 
