@@ -27,7 +27,9 @@ Wei is a cross-platform automation management tool designed to simplify and auto
 
 ## Installation
 
+```
 curl http://src.xlai.cc/wei/install.sh | sh
+```
 
 ## Contributing
 
