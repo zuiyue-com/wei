@@ -45,6 +45,10 @@ Thanks to everyone who contributes to this project.
 
 ## Version History
 
+* 1.3
+     * support docker windows
+     * support docker push
+
 * 0.2
     * Support for Windows Docker
 * 0.1
