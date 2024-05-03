@@ -46,8 +46,8 @@ Thanks to everyone who contributes to this project.
 ## Version History
 
 * 1.3
-     * support docker windows
-     * support docker push
+     * Support docker qemu windows image
+     * Support docker push
 
 * 0.2
     * Support for Windows Docker
