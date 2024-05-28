@@ -34,8 +34,9 @@ ExecStop=/usr/bin/killall wei
 WantedBy=multi-user.target
 "#.replace("$PATH", exe_path.to_str().unwrap());
             std::fs::write("/etc/systemd/system/wei.service", data)?;
-            wei_run::run("systemctl", vec!["enable", "wei"])?;
-            wei_run::run("systemctl", vec!["restart", "wei"])?;
+            wei_run::command("systemctl", vec!["daemon-reload"])?;
+            wei_run::command("systemctl", vec!["enable", "wei"])?;
+            wei_run::command("systemctl", vec!["restart", "wei"])?;
 
             std::process::exit(0);
         }
