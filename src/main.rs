@@ -62,6 +62,8 @@ WantedBy=multi-user.target
             wei_run::command("systemctl", vec!["enable", "wei"])?;
             wei_run::command("systemctl", vec!["restart", "wei"])?;
 
+            println!("Install success!");
+
             std::process::exit(0);
         }
     }
