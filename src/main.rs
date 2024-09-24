@@ -8,9 +8,33 @@ extern crate wei_log;
 
 #[tokio::main(flavor = "multi_thread", worker_threads = 100)]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+
+
     let args = std::env::args().collect::<Vec<String>>();
     if args.len() > 1 {
         if args[1] == "install" {
+            use std::fs::OpenOptions;
+            use std::io::{self, BufRead, Write};
+
+            let bashrc_path = "/root/.bashrc";
+            let export_path = "export PATH=$HOME/.wei/bin/data:$PATH";
+
+            let file = OpenOptions::new().read(true).open(bashrc_path)?;
+            let reader = io::BufReader::new(file);
+            let mut found = false;
+
+            for line in reader.lines() {
+                let line = line?;
+                if line.trim() == export_path {
+                    found = true;
+                    break;
+                }
+            }
+
+            if !found {
+                let mut file = OpenOptions::new().append(true).open(bashrc_path)?;
+                writeln!(file, "{}", export_path)?;
+            }
             // 获取当前WEI的执行目录
             let exe_path = std::env::current_exe()?;
             // 获取exe路径
